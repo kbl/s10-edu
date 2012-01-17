@@ -1,31 +1,18 @@
-# Academic Exercise: Markov Chains
+# Stocky
+Prediction of stock options trend based on historical data.
 
-_written by: Shane Emmons_
+# Usage
+Stocky reads provided input and parses it searching historical data. It supports either files accessible locally or downloadable from internet.
 
-For this exercise you'll propose and implement a novel use of a Markov
-Chains. Markov Chains are sequences of items where any item in the
-sequence is dependent only on the item which comes before it. If you're
-not familiar with Markov Chains, please take some time to research them
-yourself. As usual,
-[the Wikipedia article](http://en.wikipedia.org/wiki/Markov_chain) is a
-good start.
+    $ ./bin/stocky path/to/historical/data.txt
 
-You don't have to limit your ideas to creating new sequences via some
-input. You can also use it for prediction or ranking of items in the
-sequence.
+    $ ./bin/stocky http://url.to/historical.csv?data=1
 
-## Exercise Summary
+## Input format
+ * Data provided as an input must be in `CSV` format,
+ * Newer data should be at the bottom of the file,
+ * First row isnt relevant (header),
+ * Trends about stock value are build from data available in 5th column (price of option at the end of the day),
 
-- Propose a novel use for a Markov Chain.
-  - No two students should work on the same application of a Markov
-    Chain.
-  - You cannot write a simple text generator.
-  - If you get stuck, don't be afraid to ask for help.
-- Implement your idea.
-
-## Submission Guidelines
-
-If you plan to work on this exercise, you should fork this repository 
-and push code early and often during the course. The course 
-guidelines PDF explains the submission process in detail, but please 
-contact an instructor if you have any questions.
+# Output
+Stocky provides simple output idicating probability of price being higher/lower than last one readed from historical dataa.

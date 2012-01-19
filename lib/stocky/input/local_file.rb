@@ -15,8 +15,12 @@ module Stocky
 
       def proccess
         @input_data = []
-        CSV.foreach(@path, headers: true, converters: :float) do |row|
-          @input_data << row[PRICE_COLUMN]
+        begin
+          CSV.foreach(@path, headers: true, converters: :float) do |row|
+            @input_data << row[PRICE_COLUMN]
+          end
+        rescue
+          raise WrongInputError
         end
       end
 

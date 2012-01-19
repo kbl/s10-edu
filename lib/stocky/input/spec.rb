@@ -4,6 +4,11 @@ module Stocky
 
       PRICE_COLUMN = 4
 
+      CSV_OPTIONS = {
+        headers: true, 
+        converters: :float
+      }
+
     end
   end
 end

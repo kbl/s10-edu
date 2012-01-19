@@ -16,7 +16,7 @@ module Stocky
         begin
           uri = URI.parse(@url)
           csv_string = uri.read
-          CSV.parse(csv_string, headers: true, converters: :float) do |row|
+          CSV.parse(csv_string, Spec::CSV_OPTIONS) do |row|
             @input_data << row[Spec::PRICE_COLUMN]
           end
         rescue

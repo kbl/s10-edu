@@ -14,7 +14,7 @@ module Stocky
       def proccess
         @input_data = []
         begin
-          CSV.foreach(@path, headers: true, converters: :float) do |row|
+          CSV.foreach(@path, Spec::CSV_OPTIONS) do |row|
             @input_data << row[Spec::PRICE_COLUMN]
           end
         rescue

@@ -15,4 +15,4 @@ Stocky reads provided input and parses it searching historical data. It supports
  * Trends about stock value are build from data available in 5th column (price of option at the end of the day),
 
 # Output
-Stocky provides simple output idicating probability of price being higher/lower than last one readed from historical dataa.
+Stocky provides simple output idicating probability of price being higher/lower than last one read from historical data.

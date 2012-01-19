@@ -2,4 +2,5 @@
 
 require_relative '../lib/stocky'
 
-Stocky::CommandLine.execute ARGV[0]
+#Stocky::CommandLine.execute ARGV[0]
+Stocky::CommandLine.execute 'http://stooq.pl/q/d/l/?s=csta&i=d'

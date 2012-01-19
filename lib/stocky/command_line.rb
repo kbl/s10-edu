@@ -1,19 +1,27 @@
 module Stocky
   module CommandLine
 
-    WrongInputError = Class.new(RuntimeError)
-
     INPUT_PROCESSORS = [
       Stocky::Input::LocalFile,
       Stocky::Input::Web
     ]
 
     def self.execute(command_line_argument)
-      input = INPUT_PROCESSORS.each do |processor|
-        processor.new(command_line_argument).input_data
-        break
+      p parse_input(command_line_argument)
+    end
+
+    private 
+
+    def self.parse_input(input_source)
+      INPUT_PROCESSORS.each do |processor|
+        begin
+          return processor.new(input_source).input_data
+        rescue Input::WrongInputError
+          next
+        end
       end
-      p input
+
+      nil
     end
 
   end

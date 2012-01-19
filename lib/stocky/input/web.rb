@@ -14,7 +14,9 @@ module Stocky
       def proccess
         @input_data = []
         begin
-          CSV.foreach(@path, headers: true, converters: :float) do |row|
+          uri = URI.parse(@url)
+          csv_string = uri.read
+          CSV.parse(csv_string, headers: true, converters: :float) do |row|
             @input_data << row[Spec::PRICE_COLUMN]
           end
         rescue

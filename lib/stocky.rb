@@ -1,4 +1,5 @@
 require 'csv'
+require 'open-uri'
 
 require_relative 'stocky/input/wrong_input_error'
 

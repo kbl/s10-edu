@@ -1,3 +1,3 @@
 #!/bin/sh
 
-../bin/stocky 'http://stooq.pl/q/d/l/?s=csta&i=d'
+../bin/stocky 'http://marcin.pietraszek.pl/rmu/input.csv'

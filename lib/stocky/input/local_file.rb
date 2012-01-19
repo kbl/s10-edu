@@ -2,8 +2,6 @@ module Stocky
   module Input
     class LocalFile
 
-      PRICE_COLUMN = 4
-
       attr_reader :input_data
 
       def initialize(path)
@@ -17,7 +15,7 @@ module Stocky
         @input_data = []
         begin
           CSV.foreach(@path, headers: true, converters: :float) do |row|
-            @input_data << row[PRICE_COLUMN]
+            @input_data << row[Spec::PRICE_COLUMN]
           end
         rescue
           raise WrongInputError

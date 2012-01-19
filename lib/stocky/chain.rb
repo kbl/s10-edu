@@ -16,14 +16,14 @@ module Stocky
 
       @probability = @trend
         .each_cons(2)
-        .inject(Hash.new(0)) do |hash, trend_pair|
+        .inject(Hash.new(0)) { |hash, trend_pair|
           hash[trend_pair] += 1
           hash
-        end
-        .inject(Hash.new(0)) do |hash, (key, count)|
+        }
+        .inject(Hash.new(0)) { |hash, (key, count)|
           hash[key] = count / (@trend.length.to_f - TRANSITIONS)
           hash
-        end
+        }
     end
 
     def predict(last_trend)

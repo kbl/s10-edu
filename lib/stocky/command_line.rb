@@ -11,7 +11,14 @@ module Stocky
     end
 
     def execute
-      p parse_input
+      chain = Chain.new(parse_input)
+      [Chain::UP, Chain::DOWN].each do |last_trend| 
+        prediction = chain.predict(last_trend)
+        prediction.each do |trend, probability| 
+          print "Probability %4s --> %4s = %1.4f\n" % 
+            [last_trend, trend, probability]
+        end
+      end
     end
 
     private 
@@ -25,7 +32,7 @@ module Stocky
         end
       end
 
-      nil
+      raise Input::WrongInputError
     end
 
   end
